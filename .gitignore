@@ -12,7 +12,7 @@ app/[Cc]onfig/database.php
 /config/app.php
 /tmp/*
 /logs/*
-
+plugins/*
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm

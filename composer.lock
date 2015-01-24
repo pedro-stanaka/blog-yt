@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2b362cbefe5adc12e940bf753890271e",
+    "hash": "678444a05f5d2c604528a2acdfea4a69",
     "packages": [
         {
             "name": "aura/installer-default",
@@ -131,19 +131,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "6c64bcf3896dc220019e08cac5ca1d15f9df1443"
+                "reference": "4a7929b2d007abcb844822d5d5f95fdddb31c528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/6c64bcf3896dc220019e08cac5ca1d15f9df1443",
-                "reference": "6c64bcf3896dc220019e08cac5ca1d15f9df1443",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/4a7929b2d007abcb844822d5d5f95fdddb31c528",
+                "reference": "4a7929b2d007abcb844822d5d5f95fdddb31c528",
                 "shasum": ""
             },
             "require": {
                 "aura/intl": "1.1.*",
                 "ext-intl": "*",
                 "ext-mbstring": "*",
-                "ext-mcrypt": "*",
                 "ircmaxell/password-compat": "1.0.*",
                 "nesbot/carbon": "1.13.*",
                 "php": ">=5.4.16",
@@ -153,14 +152,16 @@
                 "cakephp/cache": "self.version",
                 "cakephp/collection": "self.version",
                 "cakephp/core": "self.version",
+                "cakephp/database": "self.version",
                 "cakephp/datasource": "self.version",
                 "cakephp/event": "self.version",
+                "cakephp/i18n": "self.version",
                 "cakephp/log": "self.version",
                 "cakephp/utility": "self.version",
                 "cakephp/validation": "self.version"
             },
             "require-dev": {
-                "cakephp/cakephp-codesniffer": "*",
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "*"
             },
             "type": "library",
@@ -170,7 +171,8 @@
                 },
                 "files": [
                     "src/Core/functions.php",
-                    "src/Collection/functions.php"
+                    "src/Collection/functions.php",
+                    "src/I18n/functions.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -188,7 +190,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-12-12 03:21:27"
+            "time": "2015-01-23 18:19:11"
         },
         {
             "name": "cakephp/debug_kit",
@@ -196,19 +198,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61"
+                "reference": "3bd8559a2e98d84b5ef33ea31b6653eb779bdaa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
-                "reference": "0c34df3ca6fefd72e6fd08f48c4b9f55dd50ce61",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/3bd8559a2e98d84b5ef33ea31b6653eb779bdaa2",
+                "reference": "3bd8559a2e98d84b5ef33ea31b6653eb779bdaa2",
                 "shasum": ""
             },
             "require": {
-                "cakephp/cakephp": "3.0.*-dev",
-                "cakephp/plugin-installer": "*"
+                "cakephp/cakephp": "3.0.*-dev"
             },
             "require-dev": {
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "phpunit/phpunit": "4.1.*"
             },
             "type": "cakephp-plugin",
@@ -245,7 +247,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-12-12 07:50:32"
+            "time": "2015-01-23 06:25:02"
         },
         {
             "name": "cakephp/migrations",
@@ -253,12 +255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "b695e01c59e40d1b14502511704be8df3230f8ec"
+                "reference": "1342694bac70b515b1a23c6fb7380f765ce0630f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/b695e01c59e40d1b14502511704be8df3230f8ec",
-                "reference": "b695e01c59e40d1b14502511704be8df3230f8ec",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/1342694bac70b515b1a23c6fb7380f765ce0630f",
+                "reference": "1342694bac70b515b1a23c6fb7380f765ce0630f",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +270,11 @@
                 "robmorgan/phinx": "*"
             },
             "require-dev": {
+                "cakephp/bake": "dev-master",
                 "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "cakephp/bake": "Required if you want to generate migrations."
             },
             "type": "cakephp-plugin",
             "extra": {
@@ -295,23 +301,24 @@
                 "cakephp",
                 "migrations"
             ],
-            "time": "2014-12-11 15:20:34"
+            "time": "2015-01-22 04:28:30"
         },
         {
             "name": "cakephp/plugin-installer",
-            "version": "0.0.1",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/plugin-installer.git",
-                "reference": "2f1a84253e216edd4462724aaca822bdda36dfdf"
+                "reference": "4f47035c59db971dbd8ab343448a41b46a22e4e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/2f1a84253e216edd4462724aaca822bdda36dfdf",
-                "reference": "2f1a84253e216edd4462724aaca822bdda36dfdf",
+                "url": "https://api.github.com/repos/cakephp/plugin-installer/zipball/4f47035c59db971dbd8ab343448a41b46a22e4e2",
+                "reference": "4f47035c59db971dbd8ab343448a41b46a22e4e2",
                 "shasum": ""
             },
             "require-dev": {
+                "cakephp/cakephp-codesniffer": "dev-master",
                 "composer/composer": "1.0.*@dev"
             },
             "type": "composer-installer",
@@ -334,7 +341,7 @@
                 }
             ],
             "description": "A composer installer for CakePHP 3.0+ plugins.",
-            "time": "2014-08-29 19:01:27"
+            "time": "2015-01-23 02:39:57"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -517,24 +524,24 @@
         },
         {
             "name": "robmorgan/phinx",
-            "version": "v0.3.8",
+            "version": "v0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/robmorgan/phinx.git",
-                "reference": "589319c8bd7f819580bbab11a8987fb38853bfe7"
+                "reference": "357210707c000f50edea802d84b74724ad122478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/589319c8bd7f819580bbab11a8987fb38853bfe7",
-                "reference": "589319c8bd7f819580bbab11a8987fb38853bfe7",
+                "url": "https://api.github.com/repos/robmorgan/phinx/zipball/357210707c000f50edea802d84b74724ad122478",
+                "reference": "357210707c000f50edea802d84b74724ad122478",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/class-loader": "2.*",
-                "symfony/config": "2.*",
-                "symfony/console": "2.*",
-                "symfony/yaml": "2.*"
+                "symfony/class-loader": "~2.6.0",
+                "symfony/config": "~2.6.0",
+                "symfony/console": "~2.6.0",
+                "symfony/yaml": "~2.6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*",
@@ -562,7 +569,7 @@
                 }
             ],
             "description": "Phinx makes it ridiculously easy to manage the database migrations for your PHP app.",
-            "homepage": "http://phinx.org",
+            "homepage": "https://phinx.org",
             "keywords": [
                 "database",
                 "database migrations",
@@ -570,28 +577,28 @@
                 "migrations",
                 "phinx"
             ],
-            "time": "2014-10-06 09:27:17"
+            "time": "2014-12-23 06:06:14"
         },
         {
             "name": "symfony/class-loader",
-            "version": "v2.6.1",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/ClassLoader",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ClassLoader.git",
-                "reference": "ba3300e6d79eb51ca9edf77791bbd0497f6030dc"
+                "reference": "deac802f76910708ab50d039806cfd1866895b52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/ba3300e6d79eb51ca9edf77791bbd0497f6030dc",
-                "reference": "ba3300e6d79eb51ca9edf77791bbd0497f6030dc",
+                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/deac802f76910708ab50d039806cfd1866895b52",
+                "reference": "deac802f76910708ab50d039806cfd1866895b52",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "symfony/finder": "~2.0"
+                "symfony/finder": "~2.0,>=2.0.5"
             },
             "type": "library",
             "extra": {
@@ -620,21 +627,21 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-01-05 14:28:40"
         },
         {
             "name": "symfony/config",
-            "version": "v2.6.1",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "84c0c150c1520995f09ea9e47e817068b353cb0f"
+                "reference": "d94f222eff99a22ce313555b78642b4873418d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/84c0c150c1520995f09ea9e47e817068b353cb0f",
-                "reference": "84c0c150c1520995f09ea9e47e817068b353cb0f",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/d94f222eff99a22ce313555b78642b4873418d56",
+                "reference": "d94f222eff99a22ce313555b78642b4873418d56",
                 "shasum": ""
             },
             "require": {
@@ -668,21 +675,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-01-03 08:01:59"
         },
         {
             "name": "symfony/console",
-            "version": "v2.6.1",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8"
+                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/ef825fd9f809d275926547c9e57cbf14968793e8",
-                "reference": "ef825fd9f809d275926547c9e57cbf14968793e8",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
+                "reference": "6ac6491ff60c0e5a941db3ccdc75a07adbb61476",
                 "shasum": ""
             },
             "require": {
@@ -725,21 +732,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-01-06 17:50:02"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.6.1",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "ff6efc95256cb33031933729e68b01d720b5436b"
+                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/ff6efc95256cb33031933729e68b01d720b5436b",
-                "reference": "ff6efc95256cb33031933729e68b01d720b5436b",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
+                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
                 "shasum": ""
             },
             "require": {
@@ -772,21 +779,21 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-01-03 21:13:09"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.6.1",
+            "version": "v2.6.3",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20"
+                "reference": "82462a90848a52c2533aa6b598b107d68076b018"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/3346fc090a3eb6b53d408db2903b241af51dcb20",
-                "reference": "3346fc090a3eb6b53d408db2903b241af51dcb20",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/82462a90848a52c2533aa6b598b107d68076b018",
+                "reference": "82462a90848a52c2533aa6b598b107d68076b018",
                 "shasum": ""
             },
             "require": {
@@ -819,7 +826,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:19:20"
+            "time": "2015-01-03 15:33:07"
         }
     ],
     "packages-dev": [
@@ -866,6 +873,7 @@
         "cakephp/migrations": 20
     },
     "prefer-stable": true,
+    "prefer-lowest": false,
     "platform": {
         "php": ">=5.4.16"
     },
