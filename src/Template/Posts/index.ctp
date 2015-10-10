@@ -8,6 +8,7 @@
                 <th><?= $this->Paginator->sort('title') ?></th>
                 <th><?= $this->Paginator->sort('created') ?></th>
                 <th><?= $this->Paginator->sort('modified') ?></th>
+                <th><?= __("Actions"); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -17,6 +18,13 @@
                     <td><?= $this->Html->link($post->title, ['controller'=>'Posts', 'action'=> 'view', $post->id]) ?></td>
                     <td><?= $post->created ?></td>
                     <td><?= $post->modified ?></td>
+                    <td>
+                        <?= $this->Html->link(__("Edit"), ['action'=>'edit', $post->id]) ?>
+                        |
+                        <?= $this->Form->postLink(__("Delete"), ['action'=>'delete', $post->id], [
+                            'confirm' => __("Are you sure you want to delete the post # {0}?", $post->id)
+                        ]); ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

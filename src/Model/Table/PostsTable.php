@@ -10,6 +10,7 @@ namespace App\Model\Table;
 
 
 use Cake\ORM\Table;
+use Cake\Validation\Validator;
 
 /**
  * Class PostsTable
@@ -22,5 +23,19 @@ class PostsTable extends Table {
         $this->addBehavior('Timestamp');
         $this->displayField('title');
     }
+
+    public function validationDefault(Validator $validator)
+    {
+        $validator
+            ->requirePresence('title', 'create')
+            ->notEmpty('title');
+
+        $validator
+            ->requirePresence('body', 'create')
+            ->notEmpty('body');
+
+        return $validator;
+    }
+
 
 }

@@ -31,22 +31,52 @@ class PostsController extends AppController {
         $this->set('post', $post);
     }
 
-    public function add() {
-        $post = $this->Posts->newEntity($this->request->data); // Transform array data in entity object
-        if ( $this->request->is('POST') ) {
-            if ( $this->Posts->save($post) ) {
-                $this->Flash->success('A new post was published in the blog.');
-                $this->redirect(['action'=>'index']);
-            }else {
-                $this->Flash->error('The post could not be saved. Try again, please.');
+    public function add()
+    {
+        $post = $this->Posts->newEntity();
+        if ($this->request->is(['post', 'put'])) {
+            $this->Posts->patchEntities($post, $this->request->data);
+
+            if ($this->Posts->save($post)) {
+                $this->Flash->success(__('A new post was created.'));
+            } else {
+                $this->Flash->error(__('The post was not saved. Please, try again.'));
             }
         }
+
         $this->set(compact('post'));
     }
 
+    public function edit($id = null)
+    {
+        $post = $this->Posts->get($id);
 
-    public function edit() {
+        if ($this->request->is(['post', 'put', 'patch'])) {
 
+            $this->Posts->patchEntity($post, $this->request->data);
+            if ($this->Posts->save($post)) {
+                $this->Flash->success(__("The post was edited."));
+            } else {
+                $this->Flash->error(__("The post could not be updated. Please, try again."));
+            }
+        }
+
+        $this->set(compact('post'));
+    }
+
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $post = $this->Posts->get($id);
+
+        if ($this->Posts->delete($post)) {
+            $this->Flash->success(__("The post was removed."));
+        } else {
+            $this->Flash->error(__("The post could not removed."));
+        }
+
+        $this->redirect(['action'=>'index']);
     }
 
 
